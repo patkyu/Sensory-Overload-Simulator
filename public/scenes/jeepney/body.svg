@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- PLACEHOLDER: jeepney interior, first-person from the side bench. Windows are holes. -->
+  <path fill-rule="evenodd" fill="#2b6cb0" d="M0 0H800V600H0Z
+    M24 100H186V250H24Z M214 100H386V250H214Z M414 100H586V250H414Z M614 100H776V250H614Z"/>
+  <rect width="800" height="70" fill="#1e3a5f"/>
+  <rect y="70" width="800" height="12" fill="#c0c7d0"/>
+  <rect y="40" width="800" height="6" fill="#dfe4ea"/>
+  <g fill="#f1c40f"><rect x="186" y="100" width="28" height="150"/><rect x="386" y="100" width="28" height="150"/><rect x="586" y="100" width="28" height="150"/></g>
+  <rect y="250" width="800" height="14" fill="#c0c7d0"/>
+  <rect y="264" width="800" height="120" rx="6" fill="#7b2d26"/>
+  <rect y="384" width="800" height="40" fill="#5a1f1a"/>
+  <rect y="424" width="800" height="176" fill="#4a4e57"/>
+  <g stroke="#3a3d44" stroke-width="4"><line x1="0" y1="470" x2="800" y2="470"/><line x1="0" y1="530" x2="800" y2="530"/></g>
+</svg>

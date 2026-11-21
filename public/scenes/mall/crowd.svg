@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- PLACEHOLDER: crowd of shoppers, seen from behind (no faces). -->
+  <g transform="translate(120 330) scale(0.7)">
+    <rect x="-40" y="0" width="80" height="150" rx="30" fill="#e76f51"/>
+    <circle cx="0" cy="-28" r="30" fill="#3d2b1f"/>
+    <rect x="-34" y="140" width="28" height="90" rx="10" fill="#343a40"/><rect x="6" y="140" width="28" height="90" rx="10" fill="#343a40"/>
+  </g>
+  <g transform="translate(260 320) scale(0.65)">
+    <rect x="-40" y="0" width="80" height="150" rx="30" fill="#2a9d8f"/>
+    <circle cx="0" cy="-28" r="30" fill="#1b1b1b"/>
+    <rect x="-34" y="140" width="28" height="90" rx="10" fill="#343a40"/><rect x="6" y="140" width="28" height="90" rx="10" fill="#343a40"/>
+  </g>
+  <g transform="translate(420 325) scale(0.7)">
+    <rect x="-40" y="0" width="80" height="150" rx="30" fill="#ffb703"/>
+    <circle cx="0" cy="-28" r="30" fill="#5a3825"/>
+    <rect x="-34" y="140" width="28" height="90" rx="10" fill="#343a40"/><rect x="6" y="140" width="28" height="90" rx="10" fill="#343a40"/>
+  </g>
+  <g transform="translate(540 330) scale(0.68)">
+    <rect x="-40" y="0" width="80" height="150" rx="30" fill="#6a4c93"/>
+    <circle cx="0" cy="-28" r="30" fill="#1b1b1b"/>
+    <rect x="-34" y="140" width="28" height="90" rx="10" fill="#343a40"/><rect x="6" y="140" width="28" height="90" rx="10" fill="#343a40"/>
+  </g>
+  <g transform="translate(330 360) scale(0.9)">
+    <rect x="-40" y="0" width="80" height="150" rx="30" fill="#118ab2"/>
+    <circle cx="0" cy="-28" r="30" fill="#3d2b1f"/>
+    <rect x="-34" y="140" width="28" height="90" rx="10" fill="#343a40"/><rect x="6" y="140" width="28" height="90" rx="10" fill="#343a40"/>
+  </g>
+  <g transform="translate(60 400) scale(1.1)">
+    <rect x="-40" y="0" width="80" height="150" rx="30" fill="#ef476f"/>
+    <circle cx="0" cy="-28" r="30" fill="#1b1b1b"/>
+    <rect x="-34" y="140" width="28" height="90" rx="10" fill="#343a40"/><rect x="6" y="140" width="28" height="90" rx="10" fill="#343a40"/>
+  </g>
+  <g transform="translate(200 420) scale(1.2)">
+    <rect x="-40" y="0" width="80" height="150" rx="30" fill="#06d6a0"/>
+    <circle cx="0" cy="-28" r="30" fill="#5a3825"/>
+    <rect x="-34" y="140" width="28" height="90" rx="10" fill="#343a40"/><rect x="6" y="140" width="28" height="90" rx="10" fill="#343a40"/>
+  </g>
+  <g transform="translate(470 410) scale(1.15)">
+    <rect x="-40" y="0" width="80" height="150" rx="30" fill="#073b4c"/>
+    <circle cx="0" cy="-28" r="30" fill="#1b1b1b"/>
+    <rect x="-34" y="140" width="28" height="90" rx="10" fill="#343a40"/><rect x="6" y="140" width="28" height="90" rx="10" fill="#343a40"/>
+  </g>
+  <g transform="translate(640 420) scale(1.2)">
+    <rect x="-40" y="0" width="80" height="150" rx="30" fill="#f78c6b"/>
+    <circle cx="0" cy="-28" r="30" fill="#3d2b1f"/>
+    <rect x="-34" y="140" width="28" height="90" rx="10" fill="#343a40"/><rect x="6" y="140" width="28" height="90" rx="10" fill="#343a40"/>
+  </g>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- PLACEHOLDER: street seen through the jeepney windows. Tiles horizontally for parallax. -->
+  <rect width="800" height="600" fill="#bfe3f2"/>
+  <rect y="60" width="800" height="40" fill="#d7eef7"/>
+  <g>
+    <rect x="10" y="110" width="110" height="170" fill="#e9c46a"/>
+    <rect x="130" y="80" width="90" height="200" fill="#f4a261"/>
+    <rect x="230" y="130" width="140" height="150" fill="#90be6d"/>
+    <rect x="380" y="95" width="100" height="185" fill="#e76f51"/>
+    <rect x="490" y="140" width="120" height="140" fill="#8ecae6"/>
+    <rect x="620" y="100" width="90" height="180" fill="#ffb4a2"/>
+    <rect x="720" y="125" width="70" height="155" fill="#a3b18a"/>
+  </g>
+  <g fill="#ffffff" opacity="0.55">
+    <rect x="25" y="130" width="20" height="20"/><rect x="65" y="130" width="20" height="20"/>
+    <rect x="145" y="100" width="20" height="20"/><rect x="185" y="140" width="20" height="20"/>
+    <rect x="250" y="150" width="30" height="20"/><rect x="320" y="150" width="30" height="20"/>
+    <rect x="400" y="115" width="20" height="20"/><rect x="440" y="160" width="20" height="20"/>
+    <rect x="510" y="160" width="25" height="20"/><rect x="560" y="160" width="25" height="20"/>
+    <rect x="640" y="120" width="20" height="20"/><rect x="735" y="145" width="20" height="20"/>
+  </g>
+  <rect y="280" width="800" height="320" fill="#6c757d"/>
+  <g fill="#f8f9fa"><rect x="40" y="300" width="80" height="8"/><rect x="240" y="300" width="80" height="8"/><rect x="440" y="300" width="80" height="8"/><rect x="640" y="300" width="80" height="8"/></g>
+</svg>

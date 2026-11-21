@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- PLACEHOLDER: rows of fluorescent ceiling lights (this layer flickers). -->
+  <defs>
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.65"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect y="0" width="800" height="260" fill="url(#glow)"/>
+  <g fill="#f8fbff" stroke="#c9d6e3" stroke-width="2">
+    <rect x="40" y="12" width="160" height="14" rx="4"/><rect x="320" y="12" width="160" height="14" rx="4"/><rect x="600" y="12" width="160" height="14" rx="4"/>
+    <rect x="110" y="60" width="120" height="10" rx="3"/><rect x="340" y="60" width="120" height="10" rx="3"/><rect x="570" y="60" width="120" height="10" rx="3"/>
+    <rect x="180" y="100" width="90" height="8" rx="3"/><rect x="355" y="100" width="90" height="8" rx="3"/><rect x="530" y="100" width="90" height="8" rx="3"/>
+  </g>
+</svg>

@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  background: #fbf7ef;
+  color: #14213d;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+}
+/* Strong, always-visible keyboard focus. */
+:focus-visible {
+  outline: 3px solid #1d4ed8;
+  outline-offset: 3px;
+}
+.pb-safe {
+  padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+}
+
+/* ---- Scene idle motion. Never applied in gentle mode. ---- */
+@keyframes sos-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(0.7%); }
+}
+@keyframes sos-sway {
+  0%, 100% { transform: rotate(-1.2deg); }
+  50% { transform: rotate(1.2deg); }
+}
+@keyframes sos-parallax {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.m-bob { animation: sos-bob 1.4s ease-in-out infinite; }
+.m-sway { animation: sos-sway 3.2s ease-in-out infinite; transform-origin: 50% 12%; }
+.m-parallax { animation: sos-parallax 18s linear infinite; }
+
+/* Backstop: if the OS asks for reduced motion, no scene animation runs at all. */
+@media (prefers-reduced-motion: reduce) {
+  .m-bob, .m-sway, .m-parallax { animation: none !important; }
+}

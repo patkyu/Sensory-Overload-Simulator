@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- PLACEHOLDER: escalator on the right. -->
+  <polygon points="560,600 800,600 800,230 700,230" fill="#adb5bd"/>
+  <polygon points="590,600 780,600 780,250 712,250" fill="#495057"/>
+  <g stroke="#6c757d" stroke-width="4">
+    <line x1="600" y1="560" x2="780" y2="560"/><line x1="625" y1="500" x2="780" y2="500"/><line x1="650" y1="440" x2="780" y2="440"/>
+    <line x1="672" y1="380" x2="780" y2="380"/><line x1="690" y1="320" x2="780" y2="320"/><line x1="704" y1="270" x2="780" y2="270"/>
+  </g>
+  <polyline points="555,560 700,215 800,215" fill="none" stroke="#212529" stroke-width="10" stroke-linecap="round"/>
+</svg>
