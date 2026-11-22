@@ -80,6 +80,13 @@ public/scenes/…, public/audio/…   Swap-in assets (see ASSETS.md)
 7. **Reflection:** includes a text-only version and the optional anonymous question.
 8. **Share card.**
 
+**One screen, no scrolling (steps 3–6):** the scene screen is exactly the window height.
+- **Wide screens** (desktop, landscape): scene on the left; captions and the task or switches on the right.
+- **Phones in portrait:** stacked.
+- **Scene size:** the scene is the largest 4:3 picture that fits the space left (CSS container query units).
+- **Screen-height rules:** the `short` (≤ 800 px) and `tiny` (≤ 500 px) Tailwind screens tighten spacing.
+- **Fallback:** on very small or landscape phones, only the switch panel scrolls inside itself. The page never scrolls, and Stop is always on screen.
+
 **Stop / I need a break** (or **Esc**) is visible throughout steps 3–6. It fades sound and picture out in 800 ms and opens a quiet break screen.
 
 ### Tuning a scene

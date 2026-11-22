@@ -18,8 +18,10 @@ body {
   outline: 3px solid #1d4ed8;
   outline-offset: 3px;
 }
-.pb-safe {
-  padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+/* Exactly one screen tall (dvh avoids mobile browser-bar jumps; vh is the fallback). */
+.screen-fit {
+  height: 100vh;
+  height: 100dvh;
 }
 
 /* ---- Scene idle motion. Never applied in gentle mode. ---- */
@@ -42,4 +44,11 @@ body {
 /* Backstop: if the OS asks for reduced motion, no scene animation runs at all. */
 @media (prefers-reduced-motion: reduce) {
   .m-bob, .m-sway, .m-parallax { animation: none !important; }
+}
+
+/* Side-by-side scene layout: captions use whatever height the switches leave free,
+   and give way first when space is tight (but always keep at least one line). */
+@media (min-width: 640px) and (min-aspect-ratio: 5/4) {
+  .captions-list { max-height: none !important; }
+  .captions-box { flex-shrink: 50; }
 }

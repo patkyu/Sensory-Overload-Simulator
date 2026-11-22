@@ -26,12 +26,12 @@ export function Task({ task, sceneId }: { task: TaskDef; sceneId: string }) {
   };
 
   return (
-    <section aria-labelledby="task-h" className="rounded-2xl border-2 border-ink bg-white p-4">
+    <section aria-labelledby="task-h" className="rounded-2xl border-2 border-ink bg-white p-3">
       <h2 id="task-h" className="text-sm font-bold uppercase tracking-wide text-muted">
         {t('task.h')}
       </h2>
-      <p className="mt-1 text-lg font-semibold">{prompt}</p>
-      <div className={`mt-3 grid gap-2 ${task.type === 'countChange' ? 'grid-cols-3' : 'grid-cols-2 sm:grid-cols-3'}`}>
+      <p className="mt-0.5 font-semibold leading-snug">{prompt}</p>
+      <div className={`mt-2 grid gap-2 ${task.type === 'countChange' ? 'grid-cols-3' : 'grid-cols-3'}`}>
         {choices.map((c) => (
           <button
             key={c.id}
@@ -39,7 +39,7 @@ export function Task({ task, sceneId }: { task: TaskDef; sceneId: string }) {
             disabled={done}
             aria-pressed={answer === c.id}
             onClick={() => pick(c.id)}
-            className={`min-h-tap rounded-xl border-2 px-3 py-2 text-lg font-bold ${
+            className={`min-h-tap rounded-xl border-2 px-2 py-1 font-bold ${
               done && c.id === correct
                 ? 'border-calm bg-calm text-white'
                 : answer === c.id
@@ -51,7 +51,7 @@ export function Task({ task, sceneId }: { task: TaskDef; sceneId: string }) {
           </button>
         ))}
       </div>
-      <p role="status" className="mt-2 min-h-[1.5rem] font-semibold">
+      <p role="status" className="mt-1 min-h-[1.5rem] text-sm font-semibold">
         {answer === null ? '' : done ? `✓ ${t('task.correct')}` : t('task.wrong')}
       </p>
     </section>

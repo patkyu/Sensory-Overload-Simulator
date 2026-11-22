@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ScreenHeading } from '../components/ui';
+import { Button, ScreenHeading } from '../components/ui';
 import { SceneView, type ShakeRequest } from '../components/SceneView';
 import { Captions, type CaptionItem } from '../components/Captions';
 import { Task } from '../components/Task';
@@ -62,7 +62,7 @@ export default function SceneRunner(props: { sceneId: SceneId; onStop: (r: Scene
 
 function Running({ scene, onStop, onDone }: { scene: SceneConfig; onStop: (r: SceneResult) => void; onDone: (r: SceneResult) => void }) {
   const t = useT();
-  const { gentle, muted, setMuted } = useSession();
+  const { gentle, muted } = useSession();
   const scale = useMemo(timeScale, []);
   const ids = useMemo(() => scene.stressors.map((s) => s.id), [scene]);
   const zero = useMemo(() => Object.fromEntries(ids.map((id) => [id, 0])) as Record<StressorId, number>, [ids]);
@@ -233,43 +233,59 @@ function Running({ scene, onStop, onDone }: { scene: SceneConfig; onStop: (r: Sc
 
   const phaseLabel = phase === 'loading' ? t('scene.loading') : t(`scene.phase.${phase}`);
 
+  // Most important first, so the compact caption box never hides a sudden event.
+  const order = { event: 0, speech: 1, touch: 2, smell: 3, sound: 4 } as const;
+  captions.sort((a, b) => (a.event ? 0 : order[a.kind]) - (b.event ? 0 : order[b.kind]));
+
   return (
-    <div className="space-y-3">
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <ScreenHeading className="text-2xl">{t(scene.titleKey)}</ScreenHeading>
-          <p role="status" className="font-semibold text-muted">
+    // One screen, no page scroll. Phone: stacked. Wide screens: scene left, panel right.
+    <div className="flex min-h-0 flex-1 flex-col">
+      <div className="shrink-0 pb-2 tiny:pb-1">
+        <div className="min-w-0">
+          <ScreenHeading className="text-xl sm:text-2xl short:sr-only">{t(scene.titleKey)}</ScreenHeading>
+          <p role="status" className="truncate text-sm font-semibold text-muted sm:text-base short:text-base">
             {phaseLabel}
             {phase === 'buildup' && latest && <> · {t('scene.stressorStarts', { name: t(`stressor.${latest}`) })}</>}
           </p>
         </div>
-        <button
-          type="button"
-          onClick={() => setMuted(!muted)}
-          aria-pressed={muted}
-          className="min-h-tap min-w-tap shrink-0 rounded-xl border-2 border-ink bg-white px-3 font-semibold"
-        >
-          <span aria-hidden="true">{muted ? '🔇 ' : '🔊 '}</span>
-          {muted ? t('header.unmute') : t('header.mute')}
-        </button>
       </div>
 
-      <SceneView
-        scene={scene}
-        levels={levels}
-        rampMs={rampMs}
-        gentle={gentle}
-        stopping={stopping}
-        shake={shake}
-        label={t(scene.altKey)}
-      />
+      <div className="flex min-h-0 flex-1 flex-col gap-2 side:grid side:grid-cols-[minmax(0,1fr)_minmax(300px,26rem)] side:grid-rows-[minmax(0,1fr)] side:gap-4">
+        {/* The scene takes the space left over and scales down to fit. */}
+        <div className="min-h-[110px] flex-[1_1_0] side:min-h-0">
+          <SceneView
+            scene={scene}
+            levels={levels}
+            rampMs={rampMs}
+            gentle={gentle}
+            stopping={stopping}
+            shake={shake}
+            label={t(scene.altKey)}
+          />
+        </div>
 
-      <Captions items={captions} />
+        <div className="flex min-h-0 shrink flex-col gap-2">
+          <Captions items={captions} />
+          {/* Fallback only: on very small screens the panel scrolls inside itself, never the page. */}
+          <div className="min-h-0 overflow-y-auto">
+            {(phase === 'buildup' || phase === 'peak') && <Task task={scene.task} sceneId={scene.id} />}
+            {phase === 'toggle' && <TogglePanel scene={scene} off={off} onTurnOff={turnOff} />}
+          </div>
+        </div>
+      </div>
 
-      {(phase === 'buildup' || phase === 'peak') && <Task task={scene.task} sceneId={scene.id} />}
-      {phase === 'toggle' && <TogglePanel scene={scene} off={off} onTurnOff={turnOff} onContinue={finish} />}
-
-      <StopButton onStop={stop} stopping={stopping} />
+      {/* Bottom bar: Stop is always here; Continue joins it in the toggle phase. */}
+      <StopButton onStop={stop} stopping={stopping}>
+        {phase === 'toggle' && (
+          <Button
+            onClick={finish}
+            variant={off.length === scene.stressors.length ? 'primary' : 'secondary'}
+            className="min-h-[52px] shrink-0 short:min-h-[46px] short:py-2 tiny:min-h-[44px] tiny:py-1"
+          >
+            {t('toggle.continue')} →
+          </Button>
+        )}
+      </StopButton>
     </div>
   );
 }

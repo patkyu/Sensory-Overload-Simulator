@@ -139,11 +139,14 @@ export function SceneView({
     );
 
   return (
+    // The outer box takes whatever space the layout gives it; the scene is the
+    // largest 4:3 rectangle that fits inside (container query units).
+    <div className="flex h-full w-full items-center justify-center [container-type:size]">
     <div
       role="img"
       aria-label={label}
-      className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border-2 border-ink/20"
-      style={{ background: scene.bg }}
+      className="relative aspect-[4/3] max-h-full max-w-full overflow-hidden rounded-2xl border-2 border-ink/20"
+      style={{ background: scene.bg, width: 'min(100cqw, calc(100cqh * 4 / 3))' }}
     >
       <div
         ref={rootRef}
@@ -195,6 +198,7 @@ export function SceneView({
         className="pointer-events-none absolute inset-0 bg-paper"
         style={{ opacity: stopping ? 1 : 0, transition: 'opacity 800ms ease-out' }}
       />
+    </div>
     </div>
   );
 }

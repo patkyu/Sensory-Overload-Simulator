@@ -55,10 +55,13 @@ export function App() {
       break;
   }
 
+  // Steps 3–6 fill exactly one screen (no page scroll); the other screens are normal pages.
+  const fit = screen.name === 'scene';
+
   return (
-    <div className="min-h-dvh">
-      <Header />
-      <main className="mx-auto max-w-3xl px-4 pb-safe pt-4">
+    <div className={fit ? 'screen-fit relative flex flex-col overflow-hidden' : 'min-h-dvh'}>
+      <Header showMute={fit} />
+      <main className={fit ? 'mx-auto flex min-h-0 w-full max-w-[1500px] flex-1 flex-col px-3 pt-2 sm:px-4' : 'mx-auto max-w-3xl px-4 pb-10 pt-4'}>
         <Suspense fallback={<p role="status" className="py-10 text-center">{t('scene.loading')}</p>}>{body}</Suspense>
       </main>
     </div>
